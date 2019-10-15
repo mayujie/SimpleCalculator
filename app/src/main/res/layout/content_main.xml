@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/activity_main">
+<!--12行写了一个EditText用来表示第一个数字，设置id为num1，宽为100dp，高为60dp，未输入时提示文字为0，键盘类型为number数字类型，-->
+<!-- First number -->
+    <EditText
+        android:id="@+id/num1"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:hint="0"
+        android:inputType="number" />
+<!--    Addition sign button, 18行Button用作加号按钮，设置id为add，宽为88dp，高为60dp，24行设置按钮文字为“+”，然后25行将加号按钮的左侧与id为num1的视图右侧对齐，26行给按钮添加点击方法为addFunc-->
+<!--    layout_constraintLeft_toRightOf  makes left of Button margin with the right side of view which id is num1-->
+    <Button
+        android:id="@+id/add"
+        android:layout_width="88dp"
+        android:layout_height="60dp"
+        android:text="+"
+        app:layout_constraintLeft_toRightOf="@id/num1"
+        android:onClick="addFunc" />
+<!-- Second number, 28行EditText作为第二个数字，设置id为num2，宽为100dp，高为60dp，未输入时提示文字为0，键盘类型为number数字类型，将控件的左侧与id为add的视图右侧对齐-->
+    <EditText
+        android:id="@+id/num2"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:hint="0"
+        android:inputType="number"
+        app:layout_constraintLeft_toRightOf="@id/add" />
+<!-- Display the result of calculator-->
+<!--  android:gravity  TextView里的文字居中, 37行TextView用作显示计算结果，设置id为fortuneText，39行默认显示文字为0，文字大小为20dp，41行android:gravity是设置TextView里的文字排列方式，设置为center表示居中显示，42行设置宽为100dp，高为60dp，将控件的左侧与id为num2的视图右侧对齐  -->
+    <TextView
+        android:id="@+id/fortuneText"
+        android:text="0"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        app:layout_constraintLeft_toRightOf="@id/num2" />
+<!--  Subtraction sign button, 46行Button用作减号按钮，设置id为sub，宽为88dp，高为60dp，设置按钮文字为“-”，然后51行将减号按钮的左侧与id为num1的视图右侧对齐，上侧与id为add的视图底部对齐，53行给按钮添加点击方法为subFunc  -->
+    <Button
+        android:id="@+id/sub"
+        android:layout_width="88dp"
+        android:layout_height="60dp"
+        android:text="-"
+        app:layout_constraintLeft_toRightOf="@id/num1"
+        app:layout_constraintTop_toBottomOf="@id/add"
+        android:onClick="subFunc" />
+<!-- Multiplication sign button, 55行是乘号按钮，设置id为mul，宽为88dp，高为60dp，设置按钮文字为“*”，60行将乘号按钮的左侧与id为num1的视图右侧对齐，上侧与id为sub的视图底部对齐，62行给按钮添加点击方法为mulFunc -->
+    <Button
+        android:id="@+id/mul"
+        android:layout_width="88dp"
+        android:layout_height="60dp"
+        android:text="*"
+        app:layout_constraintLeft_toRightOf="@id/num1"
+        app:layout_constraintTop_toBottomOf="@id/sub"
+        android:onClick="mulFunc" />
+<!-- Division sign button, 64行除号按钮，设置id为div，宽为88dp，高为60dp，设置按钮文字为“/”，69行将除号按钮的左侧与id为num1的视图右侧对齐，上侧与id为mul的视图底部对齐，71行给按钮添加点击方法为divFunc -->
+    <Button
+        android:id="@+id/div"
+        android:layout_width="88dp"
+        android:layout_height="60dp"
+        android:text="/"
+        app:layout_constraintLeft_toRightOf="@id/num1"
+        app:layout_constraintTop_toBottomOf="@id/mul"
+        android:onClick="divFunc" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
